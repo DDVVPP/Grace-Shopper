@@ -1,6 +1,7 @@
 # Grace-Shopper That's So Ravenclaw
 
 _Welcome to Our Wig Store!_
+Version 2 of Grace-Shopper
 
 ## Start
 
@@ -10,4 +11,4 @@ Run:
 
 ### Deployed on Heroku
 
-[link]: https://grace-shopper-wigs.herokuapp.com/
+`https://grace-shopper-wigs.herokuapp.com/`
