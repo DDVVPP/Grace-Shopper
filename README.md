@@ -20,9 +20,8 @@ rel="noopener noreferrer">Grace Shopper on Heroku</a>
 
 ## Team
 
-    * Nevette Bailey
-
-LinkedIn: [nevetteb](https://www.linkedin.com/in/nevetteb/)
+* Nevette Bailey
+  LinkedIn: [nevetteb](https://www.linkedin.com/in/nevetteb/)
 
 * Lyndsey Reese
   LinkedIn: [lyndsey-reese](https://www.linkedin.com/in/lyndsey-reese/)
