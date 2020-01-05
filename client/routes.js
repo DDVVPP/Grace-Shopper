@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { Login, Signup, UserHome } from './components';
 import { me } from './store';
 import AllWigs from './components/all-wigs';
+import WigsHome from './components/home';
 import ViewCart from './components/viewCart';
 import CheckoutForm from './components/checkoutForm';
 import OrderCompleted from './components/order-completed';
@@ -23,7 +24,7 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
-        <Route exact path="/" component={AllWigs} />
+        <Route exact path="/" component={WigsHome} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route exact path="/wigs" component={AllWigs} />

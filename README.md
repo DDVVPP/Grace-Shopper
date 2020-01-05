@@ -4,7 +4,7 @@ An e-commerce site where users can view and buy wigs.
 
 ## Start
 
-`npm install`
+`npm install`<br/>
 `npm run start`
 
 ### Deployed on Heroku
@@ -18,13 +18,16 @@ rel="noopener noreferrer">Grace Shopper on Heroku</a>
 
 <a href="https://github.com/thats-so-ravenclaw/grace-shopper/">Grace Shopper v.1 GitHub</a>
 
-## Team
+#### Team
 
 * Nevette Bailey
+
   LinkedIn: [nevetteb](https://www.linkedin.com/in/nevetteb/)
 
 * Lyndsey Reese
+
   LinkedIn: [lyndsey-reese](https://www.linkedin.com/in/lyndsey-reese/)
 
 * Darshin Van Parijs
+
   LinkedIn: [darshinvanparijs](https://www.linkedin.com/in/darshinvanparijs)
