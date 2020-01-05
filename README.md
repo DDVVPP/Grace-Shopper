@@ -1,14 +1,31 @@
-# Grace-Shopper That's So Ravenclaw
+# Grace-Shopper v.2
 
-_Welcome to Our Wig Store!_
-Version 2 of Grace-Shopper
+An e-commerce site where users can view and buy wigs.
 
 ## Start
 
-Run:
 `npm install`
 `npm run start`
 
 ### Deployed on Heroku
 
-`https://grace-shopper-wigs.herokuapp.com/`
+<a href="https://grace-shopper-wigs.herokuapp.com/"
+title="herokuapp"
+target="_blank"
+rel="noopener noreferrer">Grace Shopper on Heroku</a>
+
+### Link to Grace-Shopper v.1
+
+<a href="https://github.com/thats-so-ravenclaw/grace-shopper/">Grace Shopper v.1 GitHub</a>
+
+## Team
+
+    * Nevette Bailey
+
+LinkedIn: [nevetteb](https://www.linkedin.com/in/nevetteb/)
+
+* Lyndsey Reese
+  LinkedIn: [lyndsey-reese](https://www.linkedin.com/in/lyndsey-reese/)
+
+* Darshin Van Parijs
+  LinkedIn: [darshinvanparijs](https://www.linkedin.com/in/darshinvanparijs)
