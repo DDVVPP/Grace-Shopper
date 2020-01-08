@@ -52,7 +52,7 @@ const Wig = db.define('wig', {
     validate: {
       notEmpty: true,
       isIn: [
-        ['black', 'brown', 'blonde', 'rainbow', 'red', 'altervative', 'gray']
+        ['black', 'brown', 'blonde', 'rainbow', 'red', 'alternative', 'gray']
       ]
     }
   }
