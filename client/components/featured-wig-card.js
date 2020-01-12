@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { addToCartThunk } from '../store/reducers/cart';
 import { addTotalThunk } from '../store/reducers/total';
 
-class WigCard extends React.Component {
+class FeaturedWigCard extends React.Component {
   constructor() {
     super();
     this.addClick = this.addClick.bind(this);
@@ -33,14 +33,14 @@ class WigCard extends React.Component {
           <Link to={`/wigs/${wig.id}`}>
             <button type="button">View</button>
           </Link>
-          <button
+          {/* <button
             type="button"
             value={wig}
             onClick={this.addClick}
             disabled={wig.quantity === 0}
           >
             Add to Cart
-          </button>
+          </button> */}
         </div>
       </div>
     );
@@ -54,4 +54,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(WigCard);
+export default connect(null, mapDispatchToProps)(FeaturedWigCard);

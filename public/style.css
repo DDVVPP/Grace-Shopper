@@ -1,5 +1,129 @@
+/*header*/
+.site-head {
+  position: relative;
+}
+.site-head-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-head-left {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  font-size: 18px;
+  /* white-space: nowrap; */
+}
+
+.nav {
+  display: flex;
+  margin: 0 0 0 -12px;
+  padding: 0;
+  list-style: none;
+}
+
+.site-head-left a,
+.site-head-right a,
+.site-head-center a {
+  display: block;
+  font-style: normal;
+  padding: 0.5rem;
+  color: #1f5b64;
+  text-decoration: none;
+}
+
+.site-head a:hover {
+  text-decoration: none;
+  color: #257985;
+}
+
+.site-head-center {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 15px;
+}
+
+.site-head-right {
+  position: relative;
+  z-index: 100;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+.fa-shopping-cart {
+  font-size: 24px;
+  margin-left: -0.5rem;
+  padding: 0.5rem;
+}
+
+hr {
+  opacity: 0.5;
+}
+
+/* home */
+.welcomeText {
+  display: flex;
+  color: #ff4447;
+  /* justify-content: center; */
+  flex-direction: column;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.welcomeText h2 {
+  font-family: 'Averia Libre', cursive;
+  margin-bottom: 0rem;
+  font-style: bold;
+  letter-spacing: 0.05em;
+}
+.welcomeText h1 {
+  font-family: 'Amiko', sans-serif;
+  margin-bottom: 0rem;
+  margin-top: 20rem;
+  font-style: normal;
+}
+.welcomeText p {
+  font-family: 'Averia Libre', cursive;
+  color: #ff4447;
+  margin-top: 0rem;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+.shop-all-btn-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.shop-all-btn-div button {
+  font-family: 'Averia Libre', cursive;
+  font-size: 24px;
+  font-style: normal;
+  background-color: #74d3d2;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+.shop-all-btn-div button:hover {
+  background-color: #1f5b64;
+  cursor: pointer;
+  transition: 1s;
+}
+
 body {
-  font-family: sans-serif;
+  font-family: 'Amiko', sans-serif;
 }
 
 label {
@@ -151,3 +275,16 @@ form div {
 /* .form-box {
 
 } */
+
+h3 {
+  color: #320e3b;
+}
+
+p {
+  color: #320e3b;
+}
+
+#shop-name {
+  /* font-weight: bolder; */
+  font-size: 3em;
+}

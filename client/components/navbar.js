@@ -5,31 +5,48 @@ import { Link } from 'react-router-dom';
 import { logout } from '../store';
 
 const Navbar = ({ handleClick, isLoggedIn }) => (
-  <div className="nav-bar">
-    <h1 id="shop-name">Bart's Wigs</h1>
-    <nav>
+  <div>
+    <header className="site-head">
       {isLoggedIn ? (
-        <div>
-          {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
-          <Link to="/wigs">Shop</Link>
-          <Link to="/viewCart">View Cart</Link>
+        <div className="site-head-container">
+          <nav className="site-head-left">
+            {/* The navbar will show these links after you log in */}
+            <Link to="/">BART'S WIGS</Link>
+          </nav>
+          <div className="site-head-center">
+            <Link to="/wigs">Short</Link>
+            <Link to="/wigs">Medium</Link>
+            <Link to="/wigs">Long</Link>
+            <Link to="/wigs">All</Link>
+          </div>
+          <div className="site-head-right">
+            <Link to="/orders">My orders</Link>
+            <Link to="/logout">Logout</Link>
+            <Link to="/viewCart">View Cart</Link>
+          </div>
         </div>
       ) : (
-        ''
-        // <div>
-        //   {/* The navbar will show these links before you log in */}
-        //   <Link to="/login">Login</Link>
-        //   <Link to="/signup">Sign Up</Link>
-        //   <Link to="/wigs">Shop</Link>
-        //   <Link to="/viewCart">View Cart</Link>
-        // </div>
+        <div className="site-head-container">
+          <nav className="site-head-left">
+            {/* The navbar will show these links before you log in */}
+            <Link to="/">BART'S WIGS</Link>
+          </nav>
+          <div className="site-head-center">
+            <Link to="/wigs">Short</Link>
+            <Link to="/wigs">Medium</Link>
+            <Link to="/wigs">Long</Link>
+            <Link to="/wigs">All</Link>
+          </div>
+          <div className="site-head-right">
+            <Link to="/login">Login / Register</Link>
+            <Link to="/viewCart">
+              <i className="fa fa-shopping-cart" />
+            </Link>
+          </div>
+        </div>
       )}
-    </nav>
-    <hr />
+      <hr />
+    </header>
   </div>
 );
 

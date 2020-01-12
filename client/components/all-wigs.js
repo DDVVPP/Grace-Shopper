@@ -10,6 +10,7 @@ class AllWigs extends React.Component {
 
   render() {
     const wigs = this.props.wigs;
+    console.log('WIGS', wigs);
     return (
       <div className="allwigs-content">
         <h1>Shop our wigs</h1>

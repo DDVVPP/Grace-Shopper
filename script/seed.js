@@ -53,243 +53,267 @@ async function seed() {
   const wigs = await Promise.all([
     Wig.create({
       name: 'East Raphaelle',
-      price: 300,
+      price: 30000,
       quantity: 40,
       description: 'test test test',
       length: 'short',
       material: 'synthetic',
       color: 'alternative',
-      image: '/ali-pazani-8JY52A_9hiE-unsplash.png'
+      image: '/ali-pazani-8JY52A_9hiE-unsplash.png',
+      featured: true
     }),
     Wig.create({
       name: 'Lake Daphnee',
-      price: 250,
+      price: 25000,
       quantity: 40,
       description: 'test test test',
       length: 'short',
       material: 'synthetic',
       color: 'blonde',
-      image: '/davidcohen-MoA_jgeZdz4-unsplash.png'
+      image: '/davidcohen-MoA_jgeZdz4-unsplash.png',
+      featured: false
     }),
     Wig.create({
       name: 'Michaelton',
-      price: 245,
+      price: 24500,
       quantity: 40,
       description: 'test test test',
       length: 'short',
       material: 'synthetic',
       color: 'alternative',
-      image: '/wig-693688_1920.png'
+      image: '/wig-693688_1920.png',
+      featured: false
     }),
     Wig.create({
       name: 'Maximilliaside',
-      price: 310,
+      price: 31000,
       quantity: 40,
       description: 'test test test',
       length: 'short',
       material: 'synthetic',
       color: 'black',
-      image: '/christian-soler-AP9uBRhyZ7E-unsplash.png'
+      image: '/christian-soler-AP9uBRhyZ7E-unsplash.png',
+      featured: true
     }),
     Wig.create({
       name: 'Heidenreichtown',
-      price: 210,
+      price: 21000,
       quantity: 40,
       description: 'test test test',
       length: 'short',
       material: 'synthetic',
       color: 'blonde',
-      image: '/justin-essah-t8_KgUw9d1o-unsplash.png'
+      image: '/justin-essah-t8_KgUw9d1o-unsplash.png',
+      featured: false
     }),
     Wig.create({
       name: 'Jasmin',
-      price: 350,
+      price: 35000,
       quantity: 40,
       description: 'test test test',
       length: 'short',
       material: 'synthetic',
       color: 'alternative',
-      image: '/mike-lloyd-dLEvAKrZeyk-unsplash.png'
+      image: '/mike-lloyd-dLEvAKrZeyk-unsplash.png',
+      featured: false
     }),
     Wig.create({
       name: 'New Waino',
-      price: 220,
+      price: 22000,
       quantity: 40,
       description: 'test test test',
       length: 'short',
       material: 'synthetic',
       color: 'alternative',
-      image: '/ronny-sison-axDmBtDyV18-unsplash.png'
+      image: '/ronny-sison-axDmBtDyV18-unsplash.png',
+      featured: false
     }),
     Wig.create({
       name: 'Deangelofort',
-      price: 250,
+      price: 25000,
       quantity: 40,
       description: 'test test test',
       length: 'short',
       material: 'synthetic',
       color: 'alternative',
-      image: '/chan-tw7btb8vfrk-unsplash.png'
+      image: '/chan-tw7btb8vfrk-unsplash.png',
+      featured: true
     }),
     Wig.create({
       name: 'Euna',
-      price: 310,
+      price: 31000,
       quantity: 40,
       description: 'test test test',
       length: 'medium',
       material: 'synthetic',
       color: 'alternative',
-      image: '/luis-quintero-3y5Xdo91S2k-unsplash.png'
+      image: '/luis-quintero-3y5Xdo91S2k-unsplash.png',
+      featured: false
     }),
     Wig.create({
       name: 'Raphaelle',
-      price: 288,
+      price: 28800,
       quantity: 40,
       description: 'test test test',
       length: 'medium',
       material: 'synthetic',
       color: 'alternative',
-      image: '/yns-plt-dMwxvojKy9M-unsplash.png'
+      image: '/yns-plt-dMwxvojKy9M-unsplash.png',
+      featured: false
     }),
     Wig.create({
       name: 'Sammieton',
-      price: 375,
+      price: 37500,
       quantity: 40,
       description: 'test test test',
       length: 'medium',
       material: 'synthetic',
       color: 'blonde',
-      image: '/nikita-belov-1s5Z6_LsnNg-unsplash.png'
+      image: '/nikita-belov-1s5Z6_LsnNg-unsplash.png',
+      featured: false
     }),
     Wig.create({
       name: 'Kobytown',
-      price: 245,
+      price: 24500,
       quantity: 40,
       description: 'test test test',
       length: 'medium',
       material: 'synthetic',
       color: 'alternative',
-      image: '/luis-quintero-gTOfWL7prYA-unsplash.png'
+      image: '/luis-quintero-gTOfWL7prYA-unsplash.png',
+      featured: false
     }),
     Wig.create({
       name: 'Caylashire',
-      price: 210,
+      price: 21000,
       quantity: 40,
       description: 'test test test',
       length: 'medium',
       material: 'synthetic',
       color: 'black',
-      image: '/ali-pazani-Rr8uxTw1nkA-unsplash.png'
+      image: '/ali-pazani-Rr8uxTw1nkA-unsplash.png',
+      featured: true
     }),
     Wig.create({
       name: 'North',
-      price: 250,
+      price: 25000,
       quantity: 40,
       description: 'test test test',
       length: 'medium',
       material: 'synthetic',
       color: 'alternative',
-      image: '/pawel-szvmanski-Gzgcau5YSgI-unsplash.png'
+      image: '/pawel-szvmanski-Gzgcau5YSgI-unsplash.png',
+      featured: false
     }),
     Wig.create({
       name: 'Khalil',
-      price: 350,
+      price: 35000,
       quantity: 40,
       description: 'test test test',
       length: 'medium',
       material: 'synthetic',
       color: 'alternative',
-      image: '/jessica-dabrowski-TETR8YLSqt4-unsplash.png'
+      image: '/jessica-dabrowski-TETR8YLSqt4-unsplash.png',
+      featured: false
     }),
     Wig.create({
       name: 'Vokmanfort',
-      price: 380,
+      price: 38000,
       quantity: 40,
       description: 'test test test',
       length: 'medium',
       material: 'synthetic',
       color: 'blonde',
-      image: '/jon-sailer-i_MGY04myhk-unsplash.png'
+      image: '/jon-sailer-i_MGY04myhk-unsplash.png',
+      featured: false
     }),
     Wig.create({
       name: 'Alessia',
-      price: 280,
+      price: 28000,
       quantity: 40,
       description: 'test test test',
       length: 'long',
       material: 'synthetic',
       color: 'blonde',
-      image: '/sharon-mccutcheon-ORCPTrkkezw-unsplash.png'
+      image: '/sharon-mccutcheon-ORCPTrkkezw-unsplash.png',
+      featured: false
     }),
     Wig.create({
       name: 'Tyrellview',
-      price: 220,
+      price: 22000,
       quantity: 40,
       description: 'test test test',
       length: 'long',
       material: 'synthetic',
       color: 'alternative',
-      image: '/girl-1037995_1920.png'
+      image: '/girl-1037995_1920.png',
+      featured: true
     }),
     Wig.create({
       name: 'Bergstromberg',
-      price: 200,
+      price: 20000,
       quantity: 40,
       description: 'test test test',
       length: 'long',
       material: 'synthetic',
       color: 'brown',
-      image: '/clem-onojeghuo-axoIDVk0ThE-unsplash.png'
+      image: '/clem-onojeghuo-axoIDVk0ThE-unsplash.png',
+      featured: false
     }),
     Wig.create({
       name: 'East Monty',
-      price: 310,
+      price: 31000,
       quantity: 40,
       description: 'test test test',
       length: 'long',
       material: 'synthetic',
       color: 'blonde',
-      image: '/cristina-gottardi-QZgm1hjuHSg-unsplash.png'
+      image: '/cristina-gottardi-QZgm1hjuHSg-unsplash.png',
+      featured: false
     }),
     Wig.create({
       name: 'Kamryn',
-      price: 288,
+      price: 28800,
       quantity: 40,
       description: 'test test test',
       length: 'long',
       material: 'synthetic',
       color: 'gray',
-      image: '/valeriia-kogan-PD2RYMtsGhc-unsplash.png'
+      image: '/valeriia-kogan-PD2RYMtsGhc-unsplash.png',
+      featured: false
     }),
     Wig.create({
       name: 'Klingbury',
-      price: 400,
+      price: 40000,
       quantity: 40,
       description: 'test test test',
       length: 'long',
       material: 'synthetic',
       color: 'blonde',
-      image: '/enzo-tommasi-62yUsl95gyY-unsplash.png'
+      image: '/enzo-tommasi-62yUsl95gyY-unsplash.png',
+      featured: false
     }),
     Wig.create({
       name: 'Amaraberg',
-      price: 390,
+      price: 39000,
       quantity: 40,
       description: 'test test test',
       length: 'long',
       material: 'synthetic',
       color: 'alternative',
-      image: '/david-4GUr6gyLG1Q-unsplash.png'
+      image: '/david-4GUr6gyLG1Q-unsplash.png',
+      featured: false
     }),
     Wig.create({
       name: 'East Grayson',
-      price: 275,
+      price: 27500,
       quantity: 40,
       description: 'test test test',
       length: 'long',
       material: 'synthetic',
       color: 'alternative',
-      image: '/awp-XrJ9mZd3P-g-unsplash.png'
+      image: '/awp-XrJ9mZd3P-g-unsplash.png',
+      featured: false
     })
   ]);
   console.log(green(`seeded ${users.length} users`));
