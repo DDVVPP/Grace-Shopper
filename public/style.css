@@ -116,7 +116,7 @@ hr {
 .shop-all-btn-div button:hover {
   background-color: #1f5b64;
   cursor: pointer;
-  transition: 1s;
+  transition: 0.25s;
 }
 
 body {
@@ -136,6 +136,11 @@ form div {
 .allwigs-content {
   display: flex;
   flex-direction: column;
+  text-align: center;
+  font-family: 'Amiko', sans-serif;
+  margin-bottom: 0rem;
+  font-style: normal;
+  color: #ff4447;
 }
 
 .featured-wig-container {
@@ -160,6 +165,11 @@ form div {
   object-fit: contain;
 }
 
+/* .wig-img-div img:hover {
+  opacity: 0.5;
+  cursor: pointer;
+} */
+
 .wig-text-div {
   display: block;
   margin-top: 0.5rem;
@@ -171,6 +181,7 @@ form div {
   font-family: 'Averia Libre', cursive;
   color: #257985;
   margin-bottom: 0px;
+  margin-top: 1px;
 }
 .wig-btn-div {
   display: flex;
@@ -187,6 +198,11 @@ form div {
   padding: 7px;
 }
 
+.wig-btn-div button:hover {
+  background-color: #1f5b64;
+  cursor: pointer;
+  transition: 0.25s;
+}
 .wig-btn-div button:disabled {
   background-color: grey;
 }

@@ -3,20 +3,28 @@ import { connect } from 'react-redux';
 import { getAllWigs } from '../store/reducers/wigs';
 import WigCard from './wig-card';
 
-class AllWigs extends React.Component {
+class MediumWigs extends React.Component {
   componentDidMount() {
     this.props.getWigs();
   }
 
   render() {
     const wigs = this.props.wigs;
+
     return (
       <div className="allwigs-content">
-        <h1>all wigs</h1>
+        <h1>medium length wigs</h1>
         <div className="wig-container">
           {wigs === undefined
             ? ''
-            : wigs.map(wig => <WigCard wig={wig} key={wig.id} />)}
+            : wigs.map(
+                wig =>
+                  wig.length === 'medium' ? (
+                    <WigCard wig={wig} key={wig.id} />
+                  ) : (
+                    ''
+                  )
+              )}
         </div>
       </div>
     );
@@ -31,4 +39,4 @@ const mapDispatchToProps = dispatch => ({
   getWigs: () => dispatch(getAllWigs())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AllWigs);
+export default connect(mapStateToProps, mapDispatchToProps)(MediumWigs);

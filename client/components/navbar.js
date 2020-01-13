@@ -14,14 +14,16 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
             <Link to="/">BART'S WIGS</Link>
           </nav>
           <div className="site-head-center">
-            <Link to="/wigs">Short</Link>
-            <Link to="/wigs">Medium</Link>
-            <Link to="/wigs">Long</Link>
+            <Link to="/shortwigs">Short</Link>
+            <Link to="/mediumwigs">Medium</Link>
+            <Link to="/longwigs">Long</Link>
             <Link to="/wigs">All</Link>
           </div>
           <div className="site-head-right">
             <Link to="/orders">My orders</Link>
-            <Link to="/logout">Logout</Link>
+            <a href="#" onClick={handleClick}>
+              Logout
+            </a>
             <Link to="/viewCart">View Cart</Link>
           </div>
         </div>
@@ -32,9 +34,9 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
             <Link to="/">BART'S WIGS</Link>
           </nav>
           <div className="site-head-center">
-            <Link to="/wigs">Short</Link>
-            <Link to="/wigs">Medium</Link>
-            <Link to="/wigs">Long</Link>
+            <Link to="/shortwigs">Short</Link>
+            <Link to="/mediumwigs">Medium</Link>
+            <Link to="/longwigs">Long</Link>
             <Link to="/wigs">All</Link>
           </div>
           <div className="site-head-right">

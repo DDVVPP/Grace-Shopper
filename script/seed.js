@@ -170,7 +170,7 @@ async function seed() {
       material: 'synthetic',
       color: 'black',
       image: '/ali-pazani-Rr8uxTw1nkA-unsplash.png',
-      featured: 'true'
+      featured: false
     }),
     Wig.create({
       name: 'North',
@@ -225,7 +225,7 @@ async function seed() {
       material: 'synthetic',
       color: 'alternative',
       image: '/girl-1037995_1920.png',
-      featured: 'true'
+      featured: false
     }),
     Wig.create({
       name: 'Bergstromberg',
@@ -291,6 +291,72 @@ async function seed() {
       material: 'synthetic',
       color: 'alternative',
       image: '/awp-XrJ9mZd3P-g-unsplash.png',
+      featured: false
+    }),
+    Wig.create({
+      name: 'East Monty',
+      price: 21000,
+      quantity: 40,
+      description: 'test test test',
+      length: 'long',
+      material: 'synthetic',
+      color: 'alternative',
+      image: '/makeup-4060214_1920.png',
+      featured: true
+    }),
+    Wig.create({
+      name: 'East Khalil',
+      price: 31500,
+      quantity: 40,
+      description: 'test test test',
+      length: 'short',
+      material: 'synthetic',
+      color: 'red',
+      image: '/short2.png',
+      featured: false
+    }),
+    Wig.create({
+      name: 'Calistafurt',
+      price: 27500,
+      quantity: 40,
+      description: 'test test test',
+      length: 'short',
+      material: 'synthetic',
+      color: 'alternative',
+      image: '/quiet-4696546_1920.png',
+      featured: true
+    }),
+    Wig.create({
+      name: 'Magaliview',
+      price: 27500,
+      quantity: 40,
+      description: 'test test test',
+      length: 'medium',
+      material: 'synthetic',
+      color: 'brown',
+      image: '/medium.png',
+      featured: false
+    }),
+    Wig.create({
+      name: 'Lylaland',
+      price: 25000,
+      quantity: 40,
+      description: 'test test test',
+      length: 'medium',
+      material: 'synthetic',
+      color: 'blonde',
+      image: '/mannequin-455513_1920.png',
+      featured: false
+    }),
+    Wig.create({
+      name: 'Leonardburgh',
+      price: 26500,
+      quantity: 40,
+      description: 'test test test',
+      length: 'long',
+      material: 'synthetic',
+      color: 'alternative',
+      image: '/girl-4734110_1920.png',
       featured: false
     })
   ]);

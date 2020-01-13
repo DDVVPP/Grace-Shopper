@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 import { Login, Signup, UserHome } from './components';
 import { me } from './store';
 import AllWigs from './components/all-wigs';
+import LongWigs from './components/longWigs';
+import MediumWigs from './components/mediumWigs';
+import ShortWigs from './components/shortWigs';
 import WigsHome from './components/home';
 import ViewCart from './components/viewCart';
 import CheckoutForm from './components/checkoutForm';
@@ -19,7 +22,8 @@ class Routes extends Component {
   }
 
   render() {
-    const { isLoggedIn } = this.props;
+    const { isLoggedIn, wig } = this.props;
+
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
@@ -27,6 +31,10 @@ class Routes extends Component {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route exact path="/wigs" component={AllWigs} />
+
+        <Route exact path="/shortwigs" component={ShortWigs} />
+        <Route exact path="/mediumwigs" component={MediumWigs} />
+        <Route exact path="/longwigs" component={LongWigs} />
         <Route exact path="/viewCart" component={ViewCart} />
         <Route exact path="/checkoutForm" component={CheckoutForm} />
         <Route path="/orderCompleted" component={OrderCompleted} />

@@ -51,7 +51,7 @@ export const logout = () => {
     try {
       await axios.post('/auth/logout');
       dispatch(removeUser());
-      history.push('/login');
+      history.push('/wigs');
     } catch (err) {
       console.error(err);
     }
