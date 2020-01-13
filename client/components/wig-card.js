@@ -25,7 +25,7 @@ class WigCard extends React.Component {
           <img src={wig.image} />
         </div>
         <div className="wig-text-div">
-          <h3>{wig.name}</h3>
+          <p>{wig.name}</p>
           <p>Price: ${wig.price / 100}</p>
         </div>
         {wig.quantity === 0 ? <p>This item is sold out.</p> : ''}

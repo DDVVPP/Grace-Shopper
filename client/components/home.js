@@ -21,11 +21,13 @@ class WigsHome extends Component {
               <button type="button">shop now</button>
             </Link>
           </div>
-          <h1>featured wigs</h1>
-          <div className="wig-container">
-            {wigs === undefined
-              ? ''
-              : wigs.map(wig => <FeaturedWigCard wig={wig} key={wig.id} />)}
+          <div className="allWigs-content">
+            <h1>featured wigs</h1>
+            <div className="featured-wig-container">
+              {wigs === undefined
+                ? ''
+                : wigs.map(wig => <FeaturedWigCard wig={wig} key={wig.id} />)}
+            </div>
           </div>
         </div>
       </div>

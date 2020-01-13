@@ -55,6 +55,10 @@ const Wig = db.define('wig', {
         ['black', 'brown', 'blonde', 'rainbow', 'red', 'alternative', 'gray']
       ]
     }
+  },
+  featured: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false
   }
 });
 

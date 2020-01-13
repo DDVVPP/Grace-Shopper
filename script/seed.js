@@ -18,22 +18,6 @@ for (let i = 1; i < 101; i++) {
   usersArr.push(newUser);
 }
 
-//creates an array to seed the databse with faker data for wigs
-// let wigsArr = [];
-// for (let i = 1; i < 51; i++) {
-//   let newWig = {
-//     name: `The ${faker.address.city()}`,
-//     image: faker.image.imageUrl(),
-//     price: faker.random.number(),
-//     quantity: 25,
-//     description: faker.name.jobDescriptor(),
-//     length: 'medium',
-//     material: 'human',
-//     color: 'brown'
-//   };
-//   wigsArr.push(newWig);
-// }
-
 async function seed() {
   await db.sync({ force: true });
   console.log(green('db synced!'));
@@ -44,18 +28,12 @@ async function seed() {
     })
   );
 
-  // const wigs = await Promise.all(
-  //   wigsArr.map(wig => {
-  //     return Wig.create(wig);
-  //   })
-  // );
-
   const wigs = await Promise.all([
     Wig.create({
       name: 'East Raphaelle',
       price: 30000,
       quantity: 40,
-      description: 'test test test',
+      description: 'true',
       length: 'short',
       material: 'synthetic',
       color: 'alternative',
@@ -93,7 +71,7 @@ async function seed() {
       material: 'synthetic',
       color: 'black',
       image: '/christian-soler-AP9uBRhyZ7E-unsplash.png',
-      featured: true
+      featured: 'true'
     }),
     Wig.create({
       name: 'Heidenreichtown',
@@ -137,7 +115,7 @@ async function seed() {
       material: 'synthetic',
       color: 'alternative',
       image: '/chan-tw7btb8vfrk-unsplash.png',
-      featured: true
+      featured: 'true'
     }),
     Wig.create({
       name: 'Euna',
@@ -192,7 +170,7 @@ async function seed() {
       material: 'synthetic',
       color: 'black',
       image: '/ali-pazani-Rr8uxTw1nkA-unsplash.png',
-      featured: true
+      featured: 'true'
     }),
     Wig.create({
       name: 'North',
@@ -247,7 +225,7 @@ async function seed() {
       material: 'synthetic',
       color: 'alternative',
       image: '/girl-1037995_1920.png',
-      featured: true
+      featured: 'true'
     }),
     Wig.create({
       name: 'Bergstromberg',

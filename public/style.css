@@ -8,21 +8,19 @@
   align-items: center;
 }
 
-.site-head-left {
-  position: relative;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
-  font-size: 18px;
-  /* white-space: nowrap; */
-}
-
-.nav {
+/* .nav {
   display: flex;
   margin: 0 0 0 -12px;
   padding: 0;
   list-style: none;
+} */
+
+.site-head-left {
+  display: flex;
+  position: relative;
+  z-index: 100;
+  align-items: center;
+  font-size: 18px;
 }
 
 .site-head-left a,
@@ -57,7 +55,7 @@
   font-size: 15px;
 }
 .fa-shopping-cart {
-  font-size: 24px;
+  font-size: 28px;
   margin-left: -0.5rem;
   padding: 0.5rem;
 }
@@ -70,7 +68,6 @@ hr {
 .welcomeText {
   display: flex;
   color: #ff4447;
-  /* justify-content: center; */
   flex-direction: column;
   text-align: center;
   margin-top: 3rem;
@@ -85,7 +82,7 @@ hr {
 .welcomeText h1 {
   font-family: 'Amiko', sans-serif;
   margin-bottom: 0rem;
-  margin-top: 20rem;
+  margin-top: 12%;
   font-style: normal;
 }
 .welcomeText p {
@@ -135,10 +132,15 @@ form div {
   display: inline-block;
 }
 
-/* body of the AllWigs page */
+/* featuredWigs and allWigs */
 .allwigs-content {
   display: flex;
   flex-direction: column;
+}
+
+.featured-wig-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .wig-container {
@@ -148,7 +150,7 @@ form div {
 }
 
 .wig-card {
-  flex: 1 1 30%;
+  flex: 1 1 15%;
   margin: 10px 20px 25px;
 }
 
@@ -158,6 +160,18 @@ form div {
   object-fit: contain;
 }
 
+.wig-text-div {
+  display: block;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.wig-text-div p {
+  text-align: left;
+  font-family: 'Averia Libre', cursive;
+  color: #257985;
+  margin-bottom: 0px;
+}
 .wig-btn-div {
   display: flex;
   flex-direction: row;
