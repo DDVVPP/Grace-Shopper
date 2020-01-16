@@ -10,7 +10,7 @@ An e-commerce site where users can view and buy wigs.
 
 ### Deployed on Heroku
 
-<a href="https://grace-shopper-wigs.herokuapp.com/"
+<a href="https://grace-shopper-v2.herokuapp.com/"
 title="herokuapp"
 target="_blank"
 rel="noopener noreferrer">Grace Shopper on Heroku</a>
@@ -19,7 +19,7 @@ rel="noopener noreferrer">Grace Shopper on Heroku</a>
 
 <a href="https://github.com/thats-so-ravenclaw/grace-shopper/">Grace Shopper v.1 GitHub</a>
 
-#### Team
+#### Team of Grace-Shopper v.1
 
 * Nevette Bailey
 
