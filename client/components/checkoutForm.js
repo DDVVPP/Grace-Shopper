@@ -2,18 +2,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { placeOrderThunk, updateWigsThunk } from '../store/reducers/cart';
 import { Link } from 'react-router-dom';
+import wigs from '../store/reducers/wigs';
 //need to import thunks to post an order
 
 class CheckoutForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      name: '',
+      firstName: '',
+      lastName: '',
       shippingAddressStreet: '',
+      shippingAddressLine2: '',
       shippingAddressCity: '',
       shippingAddressState: '',
       shippingAddressZipcode: '',
+
       billingAddressStreet: '',
+      billingAddressLine2: '',
       billingAddressCity: '',
       billingAddressState: '',
       billingAddressZipcode: ''
@@ -31,8 +36,10 @@ class CheckoutForm extends React.Component {
     event.preventDefault();
     const order = {
       total: this.props.total,
-      name: this.state.name,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
       street: this.state.shippingAddressStreet,
+      addressLine2: this.state.shippingAddressLine2,
       city: this.state.shippingAddressCity,
       state: this.state.shippingAddressState,
       zip: this.state.shippingAddressZipcode,
@@ -50,9 +57,11 @@ class CheckoutForm extends React.Component {
       cart.map(order => {
         return (
           <div className="summary-div" key={order.id}>
+            <img src={order.image} />
+
             <p>{order.name}</p>
-            <p>Quantity: {order.cartQuantity}</p>
             <p>Price: ${(order.price * order.cartQuantity / 100).toFixed(2)}</p>
+            <p>{order.cartQuantity}</p>
           </div>
         );
       })
@@ -60,110 +69,190 @@ class CheckoutForm extends React.Component {
       <div className="no-items">There are no items in your cart!</div>
     );
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h2>Checkout</h2>
-        <div id="order-summary">
-          {cart.length > 0 ? (
-            <div>
+      <div>
+        <div className="checkoutText">
+          <h1>checkout</h1>
+        </div>
+
+        <form onSubmit={this.handleSubmit}>
+          <div className="form-box">
+            <div className="contact">
+              <h4>Contact information</h4>
+              <div className="column">
+                <input
+                  type="text"
+                  name="name"
+                  value={this.state.name}
+                  onChange={this.handleChange}
+                  placeholder="Email"
+                />
+              </div>
+            </div>
+
+            <div className="shipping">
+              <h4>Shipping address</h4>
+              <div className="sideBySide">
+                <input
+                  type="text"
+                  name="firstName"
+                  value={this.state.firstName}
+                  onChange={this.handleChange}
+                  placeholder="First name"
+                />
+                <input
+                  type="text"
+                  name="LastName"
+                  value={this.state.lastName}
+                  onChange={this.handleChange}
+                  placeholder="Last name"
+                />
+              </div>
+
+              <div className="column">
+                <input
+                  type="text"
+                  name="shippingAddressStreet"
+                  value={this.state.shippingAddressStreet}
+                  onChange={this.handleChange}
+                  placeholder="Address"
+                />
+              </div>
+              <div className="sideBySide">
+                <input
+                  type="text"
+                  name="shippingAddressLine2"
+                  value={this.state.shippingAddressLine2}
+                  onChange={this.handleChange}
+                  placeholder="Address Line 2 (Optional)"
+                />
+                <input
+                  type="text"
+                  name="shippingAddressCity"
+                  value={this.state.shippingAddressCity}
+                  onChange={this.handleChange}
+                  placeholder="City"
+                />
+              </div>
+              <div className="sideBySide">
+                <input
+                  type="text"
+                  name="shippingAddressState"
+                  value={this.state.shippingAddressState}
+                  onChange={this.handleChange}
+                  placeholder="State"
+                />
+                <input
+                  type="text"
+                  name="shippingAddressZipcode"
+                  value={this.state.shippingAddressZipcode}
+                  onChange={this.handleChange}
+                  placeholder="ZIP code"
+                />
+              </div>
+              <div className="column">
+                <input
+                  type="number"
+                  name="contactPhoneNumber"
+                  value={this.contactPhoneNumber}
+                  onChange={this.handleChange}
+                  placeholder="Contact phone number"
+                />
+              </div>
+            </div>
+
+            <div className="billing">
+              <h4>Billing address</h4>
+              <div className="sideBySide">
+                <input
+                  type="text"
+                  name="firstName"
+                  value={this.state.firstName}
+                  onChange={this.handleChange}
+                  placeholder="First name"
+                />
+                <input
+                  type="text"
+                  name="LastName"
+                  value={this.state.lastName}
+                  onChange={this.handleChange}
+                  placeholder="Last name"
+                />
+              </div>
+
+              <div className="column">
+                <input
+                  type="text"
+                  name="billingAddressStreet"
+                  value={this.state.billingAddressStreet}
+                  onChange={this.handleChange}
+                  placeholder="Address"
+                />
+              </div>
+              <div className="sideBySide">
+                <input
+                  type="text"
+                  name="billingAddressLine2"
+                  value={this.state.billingAddressLine2}
+                  onChange={this.handleChange}
+                  placeholder="Address Line 2 (Optional)"
+                />
+                <input
+                  type="text"
+                  name="billingAddressCity"
+                  value={this.state.billingAddressCity}
+                  onChange={this.handleChange}
+                  placeholder="City"
+                />
+              </div>
+              <div className="sideBySide">
+                <input
+                  type="text"
+                  name="billingAddressState"
+                  value={this.state.billingAddressState}
+                  onChange={this.handleChange}
+                  placeholder="State"
+                />
+                <input
+                  type="text"
+                  name="billingAddressZipcode"
+                  value={this.state.billingAddressZipcode}
+                  onChange={this.handleChange}
+                  placeholder="ZIP code"
+                />
+              </div>
+              <div className="column">
+                <input
+                  type="number"
+                  name="contactPhoneNumber"
+                  value={this.contactPhoneNumber}
+                  onChange={this.handleChange}
+                  placeholder="Contact phone number"
+                />
+              </div>
+            </div>
+
+            <div className="place-order-btn-div">
+              <button type="submit">Place Order</button>
+            </div>
+          </div>
+
+          <div className="order-summary">
+            <div className="contact">
               <h4>Order Summary</h4>
-              {orderSummary}
-              <p>Order Total: ${(this.props.total / 100).toFixed(2)}</p>
             </div>
-          ) : (
-            <div className="no-items">There are no items in your cart!</div>
-          )}
-        </div>
-        <div className="form-box">
-          <div>
-            <h4>Shipping Address:</h4>
-            <div>
-              <label htmlFor="name">Name:</label>
-              <input
-                type="text"
-                name="name"
-                value={this.state.name}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="shippingAddressStreet">Street:</label>
-              <input
-                type="text"
-                name="shippingAddressStreet"
-                value={this.state.shippingAddressStreet}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="shippingAddressCity">City:</label>
-              <input
-                type="text"
-                name="shippingAddressCity"
-                value={this.state.shippingAddressCity}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="shippingAddressState">State:</label>
-              <input
-                type="text"
-                name="shippingAddressState"
-                value={this.state.shippingAddressState}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="shippingAddressZipcode">Zip:</label>
-              <input
-                type="text"
-                name="shippingAddressZipcode"
-                value={this.state.shippingAddressZipcode}
-                onChange={this.handleChange}
-              />
-            </div>
+            {cart.length > 0 ? (
+              <div className="contact">
+                {orderSummary}
+                <h2>Order Total: ${(this.props.total / 100).toFixed(2)}</h2>
+              </div>
+            ) : (
+              <div className="contact">
+                <h3>There are no items in your cart!</h3>
+              </div>
+            )}
           </div>
-          <div>
-            <h4>Billing Address:</h4>
-            <div>
-              <label htmlFor="billingAddressStreet">Street:</label>
-              <input
-                type="text"
-                name="billingAddressStreet"
-                value={this.state.billingAddressStreet}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="billingAddressCity">City:</label>
-              <input
-                type="text"
-                name="billingAddressCity"
-                value={this.state.billingAddressCity}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="billingAddressState">State:</label>
-              <input
-                type="text"
-                name="billingAddressState"
-                value={this.state.billingAddressState}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="billingAddressZipcode">Zip:</label>
-              <input
-                type="text"
-                name="billingAddressZipcode"
-                value={this.state.billingAddressZipcode}
-                onChange={this.handleChange}
-              />
-            </div>
-          </div>
-          <button type="submit">Place Order</button>
-        </div>
-      </form>
+        </form>
+      </div>
     );
   }
 }

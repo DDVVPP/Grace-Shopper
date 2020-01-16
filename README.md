@@ -5,7 +5,8 @@ An e-commerce site where users can view and buy wigs.
 ## Start
 
 `npm install`<br/>
-`npm run start`
+`npm run start`<br/>
+`localhost:8080`
 
 ### Deployed on Heroku
 
