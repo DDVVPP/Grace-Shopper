@@ -9,7 +9,7 @@ router.post('/', async (req, res, next) => {
       const oneOrder = await Order.create({
         status: 'submitted',
         total: req.body.total,
-        name: req.body.name,
+        firstName: req.body.firstName,
         street: req.body.street,
         city: req.body.city,
         state: req.body.state,

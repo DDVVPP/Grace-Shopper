@@ -467,7 +467,93 @@ form h2 {
   transition: 0.25s;
 }
 
+/*----------------- VIEW CART -----------------*/
+
+.order-summary-centered {
+  display: flex;
+
+  flex-direction: column;
+  font-family: 'Amiko', sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  color: #152f33;
+  align-items: center;
+}
+
+.order-summary-centered .summary-div {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.order-summary-centered .summary-div img {
+  max-width: 100px;
+  text-align: left;
+  margin-right: 2rem;
+}
+
+.order-summary-centered .summary-div p {
+  padding: 1.5rem;
+  font-size: small;
+  text-align: left;
+}
+
+.order-summary-centered .contact {
+  margin-top: 4rem;
+  margin-bottom: 0.5rem;
+  margin-left: 0;
+  margin-right: 0;
+  width: 50%;
+}
+
+.order-summary-centered .contact h4 {
+  margin: 0rem 0rem 0rem 0rem;
+}
+
+.order-summary-centered .contact h3 {
+  margin-top: -0.5rem;
+  font-size: small;
+  border: 1px solid #257985;
+  padding: 3rem;
+  border-radius: 10px;
+  opacity: 0.75;
+  text-align: center;
+}
+
+.order-summary-centered .contact h2 {
+  color: #ff4447;
+  font-style: bold;
+  font-size: 15px;
+  text-align: center;
+}
+
+.order-summary-centered .contact .summary-div {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.5rem;
+  margin-left: -0.5rem;
+  border: 1px solid #257885bd;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.order-summary-centered .contact .summary-div button {
+  position: relative;
+  padding: 0.25rem;
+  border: 1px solid #257885bd;
+  border-radius: 2px;
+  margin-left: 1.5rem;
+}
+
+.order-summary-centered .contact .summary-div button:hover {
+  background-color: #ec3030;
+  cursor: pointer;
+  transition: 0.25s;
+  color: white;
+  border: 0;
+}
+
+/*----------------- NOT SURE WHAT THIS -----------------*/
+
 #shop-name {
-  /* font-weight: bolder; */
   font-size: 3em;
 }

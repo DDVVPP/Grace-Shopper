@@ -13,7 +13,7 @@ const Order = db.define('order', {
     type: Sequelize.FLOAT,
     allowNull: false
   },
-  name: {
+  firstName: {
     type: Sequelize.STRING,
     allowNull: false
   },
