@@ -42,7 +42,8 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
             <Link to="/wigs">All</Link>
           </div>
           <div className="site-head-right">
-            <Link to="/login">Login / Register</Link>
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Sign up</Link>
             <Link to="/viewCart">
               <i className="fa fa-shopping-cart" />
             </Link>

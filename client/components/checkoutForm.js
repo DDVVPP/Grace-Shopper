@@ -9,6 +9,7 @@ class CheckoutForm extends React.Component {
   constructor() {
     super();
     this.state = {
+      email: '',
       firstName: '',
       lastName: '',
       shippingAddressStreet: '',
@@ -36,6 +37,7 @@ class CheckoutForm extends React.Component {
     event.preventDefault();
     const order = {
       total: this.props.total,
+      email: this.state.email,
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       street: this.state.shippingAddressStreet,
@@ -81,8 +83,8 @@ class CheckoutForm extends React.Component {
               <div className="column">
                 <input
                   type="text"
-                  name="name"
-                  value={this.state.name}
+                  name="email"
+                  value={this.state.email}
                   onChange={this.handleChange}
                   placeholder="Email"
                 />
@@ -101,7 +103,7 @@ class CheckoutForm extends React.Component {
                 />
                 <input
                   type="text"
-                  name="LastName"
+                  name="lastName"
                   value={this.state.lastName}
                   onChange={this.handleChange}
                   placeholder="Last name"
@@ -172,7 +174,7 @@ class CheckoutForm extends React.Component {
                 />
                 <input
                   type="text"
-                  name="LastName"
+                  name="lastName"
                   value={this.state.lastName}
                   onChange={this.handleChange}
                   placeholder="Last name"

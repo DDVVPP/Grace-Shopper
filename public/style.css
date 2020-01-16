@@ -552,6 +552,81 @@ form h2 {
   border: 0;
 }
 
+/*----------------- LOGIN FORM -----------------*/
+
+.loginSignupForm {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  font-style: normal;
+  font-weight: normal;
+  font-family: 'Amiko', sans-serif;
+}
+.loginSignupText h1 {
+  font-family: 'Amiko', sans-serif;
+  color: #ff4447;
+  text-align: center;
+  margin-bottom: 0rem;
+  margin-top: 3rem;
+  font-style: normal;
+}
+
+.form-box-loginSignup {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Amiko', sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  color: #152f33;
+  align-items: center;
+}
+
+.contact-loginSignup .column-loginSignup {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.form-box-loginSignup input {
+  border: 1px solid #257985;
+  padding: 0.7rem;
+  border-radius: 10px;
+  opacity: 0.75;
+  margin-top: 0.5rem;
+}
+
+.form-box-loginSignup .contact-loginSignup,
+.form-box-loginSignup .loginSignup-btn-div {
+  width: 40%;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.form-box-loginSignup .contact-loginSignup h4 {
+  margin: 0rem;
+}
+
+.loginSignup-btn-div button {
+  position: relative;
+  font-family: 'Averia Libre', cursive;
+  font-size: 18px;
+  font-style: normal;
+  background-color: #74d3d2;
+  border: none;
+  color: white;
+  width: 100%;
+  border-radius: 10px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.loginSignup-btn-div button:hover {
+  background-color: #1f5b64;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
 /*----------------- NOT SURE WHAT THIS -----------------*/
 
 #shop-name {

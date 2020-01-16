@@ -37,6 +37,14 @@ class FeaturedWigCard extends React.Component {
               <Link to={`/wigs/${wig.id}`}>
                 <button className="button">View</button>
               </Link>
+              <button
+                type="button"
+                value={wig}
+                onClick={this.addClick}
+                disabled={wig.quantity === 0}
+              >
+                Add to Cart
+              </button>
             </div>
           </div>
         ) : (
