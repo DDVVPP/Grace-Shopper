@@ -28,11 +28,16 @@ export const me = () => {
   };
 };
 
-export const auth = (email, password, method) => {
+export const auth = (email, password, method, firstName, lastName) => {
   return async dispatch => {
     let res;
     try {
-      res = await axios.post(`/auth/${method}`, { email, password });
+      res = await axios.post(`/auth/${method}`, {
+        email,
+        password,
+        firstName,
+        lastName
+      });
     } catch (authError) {
       return dispatch(getUser({ error: authError }));
     }

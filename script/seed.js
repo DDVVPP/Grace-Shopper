@@ -7,10 +7,12 @@ const faker = require('faker');
 
 //creates an array to seed the database with faker data for users
 let usersArr = [];
-for (let i = 1; i < 101; i++) {
+for (let i = 1; i < 50; i++) {
   let newUser = {
     email: faker.internet.email(),
     password: faker.internet.password(),
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
     salt: faker.lorem.word(),
     googleId: faker.name.firstName(),
     isAdmid: false

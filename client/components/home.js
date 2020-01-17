@@ -9,13 +9,23 @@ class WigsHome extends Component {
     this.props.getWigs();
   }
   render() {
-    const wigs = this.props.wigs;
+    const { wigs, firstName } = this.props;
 
     return (
       <div>
         <div className="welcomeText">
-          <h2>welcome to BART'S WIGS!</h2>
-          <p>a place to fullfill all of your wig needs</p>
+          {firstName ? (
+            <div>
+              <h2> welcome to BART'S WIGS {firstName}! </h2>
+              <p>a place to fullfill all of your wig needs</p>
+            </div>
+          ) : (
+            <div>
+              <h2>welcome to BART'S WIGS!</h2>
+              <p>a place to fullfill all of your wig needs</p>
+            </div>
+          )}
+
           <div className="shop-all-btn-div">
             <Link to="/wigs">
               <button type="button">shop now</button>
@@ -23,6 +33,7 @@ class WigsHome extends Component {
           </div>
           <div className="allWigs-content">
             <h1>featured wigs</h1>
+
             <div className="featured-wig-container">
               {wigs === undefined
                 ? ''
@@ -36,7 +47,9 @@ class WigsHome extends Component {
 }
 
 const mapStateToProps = state => ({
-  wigs: state.wigs
+  wigs: state.wigs,
+  email: state.user.email,
+  firstName: state.user.firstName
 });
 
 const mapDispatchToProps = dispatch => ({
