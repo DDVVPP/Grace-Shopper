@@ -21,7 +21,7 @@ const LoginForm = props => {
           <div className="contact-loginSignup">
             <div className="column-loginSignup">
               <input type="text" name="email" placeholder="Email" />
-              <input type="text" name="password" placeholder="Password" />
+              <input type="password" name="password" placeholder="Password" />
             </div>
           </div>
 

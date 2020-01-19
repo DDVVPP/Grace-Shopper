@@ -49,7 +49,7 @@ class CheckoutForm extends React.Component {
     };
     this.props.updateWigsThunk(this.props.cart);
     this.props.placeOrderThunk(order);
-    window.location.pathname = '/orderCompleted';
+    // window.location.pathname = '/orderCompleted';
   }
 
   render() {
@@ -234,8 +234,14 @@ class CheckoutForm extends React.Component {
             </div>
 
             <div className="place-order-btn-div">
-              <button type="submit">Place Order</button>
+              <Link to="/orderCompleted">
+                <button type="button">Place Order</button>
+              </Link>
             </div>
+
+            {/* <div className="place-order-btn-div">
+              <button type="submit">Place Order</button>
+            </div> */}
           </div>
 
           <div className="order-summary">

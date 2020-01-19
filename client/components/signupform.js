@@ -22,7 +22,7 @@ const SignUpForm = props => {
               <input type="text" name="firstName" placeholder="First name" />
               <input type="text" name="lastName" placeholder="Last name" />
               <input type="text" name="email" placeholder="Email" />
-              <input type="text" name="password" placeholder="Password" />
+              <input type="password" name="password" placeholder="Password" />
             </div>
           </div>
           <div className="loginSignup-btn-div">

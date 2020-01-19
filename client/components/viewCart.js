@@ -37,37 +37,6 @@ class ViewCart extends React.Component {
       ? this.props.cart.map(item => {
           // eslint-disable-next-line no-return-assign
           return (
-            //         <div className="cart-div" key={item.id}>
-            //           <div className="item-img-div">
-            //             <img src={item.image} />
-            //           </div>
-            //           <div className="item-text-div">
-            //             <h3 className="item-name-padding">{item.name}</h3>
-            //             <p className="item-text-padding">
-            //               Quantity: {item.cartQuantity}
-            //             </p>
-            //             <p className="item-text-padding">
-            //               Price: ${(item.price * item.cartQuantity / 100).toFixed(2)}
-            //             </p>
-            //             <div className="item-btn-div">
-            //               <button
-            //                 type="button"
-            //                 value={item.id}
-            //                 onClick={
-            //                   this.removeClickItem // value={item.price * item.cartQuantity}
-            //                 }
-            //               >
-            //                 Remove from Cart
-            //               </button>
-            //             </div>
-            //           </div>
-            //         </div>
-            //       );
-            //     })
-            //   : '';
-
-            // const itemSum = this.props.cart ? this.props.total : '';
-
             <div className="summary-div" key={item.id}>
               <img src={item.image} />
               <p>{item.name}</p>
@@ -113,28 +82,6 @@ class ViewCart extends React.Component {
             </button>
           </Link>
         </div>
-
-        {/* <div className="cart-container">
-          {items}
-          <div className="item-text-div">
-            {this.props.cart.length > 0 ? (
-              <h3>Total Price: ${(itemSum / 100).toFixed(2)}</h3>
-            ) : (
-              <p>There are no items in your cart!</p>
-            )}
-          </div>
-          <div className="checkout-button-div">
-            {this.props.cart.length > 0 ? (
-              <Link to="/checkoutForm">
-                <button type="button" className="checkout-btn">
-                  Checkout
-                </button>
-              </Link>
-            ) : (
-              ''
-            )}
-          </div>
-        </div> */}
       </div>
     );
   }
