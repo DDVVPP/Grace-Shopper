@@ -13,13 +13,24 @@ const Order = db.define('order', {
     type: Sequelize.FLOAT,
     allowNull: false
   },
+  email: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   firstName: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  lastName: {
     type: Sequelize.STRING,
     allowNull: false
   },
   street: {
     type: Sequelize.STRING,
     allowNull: false
+  },
+  addressLine2: {
+    type: Sequelize.STRING
   },
   city: {
     type: Sequelize.STRING,
