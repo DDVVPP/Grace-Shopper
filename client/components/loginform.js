@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { auth } from '../store';
-import { render } from 'enzyme';
 
 /**
  * COMPONENT
@@ -20,11 +19,10 @@ const LoginForm = props => {
         <div className="form-box-loginSignup">
           <div className="contact-loginSignup">
             <div className="column-loginSignup">
-              <input type="text" name="email" placeholder="Email" />
+              <input type="email" name="email" placeholder="Email" />
               <input type="password" name="password" placeholder="Password" />
             </div>
           </div>
-
           <div className="loginSignup-btn-div">
             <button type="submit">Login</button>
           </div>

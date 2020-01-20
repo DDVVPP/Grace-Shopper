@@ -6,33 +6,173 @@ import { auth } from '../store';
 /**
  * COMPONENT
  */
-const SignUpForm = props => {
-  const { name, handleSubmit } = props;
 
-  return (
-    <div>
-      <div className="loginSignupText">
-        <h1>Sign up</h1>
-      </div>
+class disconnectedSignUpForm extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      errors: {
+        firstName: 'Required',
+        lastName: 'Required',
+        email: 'Required',
+        password: 'Passwords must be at least 6 characters long.'
+      }
+    };
 
-      <form className="loginSignupForm" onSubmit={handleSubmit} name={name}>
-        <div className="form-box-loginSignup">
-          <div className="contact-loginSignup">
-            <div className="column-loginSignup">
-              <input type="text" name="firstName" placeholder="First name" />
-              <input type="text" name="lastName" placeholder="Last name" />
-              <input type="text" name="email" placeholder="Email" />
-              <input type="password" name="password" placeholder="Password" />
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    let errors = this.state.errors;
+    const validEmailRegex = RegExp(
+      /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+    );
+
+    switch (event.target.name) {
+      case 'firstName':
+        errors.firstName =
+          event.target.value.length < 1 ? 'Your first name is required' : '';
+        break;
+      case 'lastName':
+        errors.lastName =
+          event.target.value.length < 1 ? 'Your last name is required' : '';
+        break;
+      case 'email':
+        errors.email = validEmailRegex.test(event.target.value)
+          ? ''
+          : 'Email is not valid';
+        break;
+      case 'password':
+        errors.password =
+          event.target.value.length < 6
+            ? 'Password must be 6 characters long'
+            : '';
+        break;
+      default:
+        break;
+    }
+    this.setState({ errors, [event.target.name]: event.target.value });
+  }
+
+  handleSubmit(evt) {
+    evt.preventDefault();
+    this.props.authorize(
+      this.state.email,
+      this.state.password,
+      this.state.firstName,
+      this.state.lastName,
+      this.props.name
+    );
+  }
+
+  render() {
+    const { errors } = this.state;
+
+    return (
+      <div>
+        <div className="loginSignupText">
+          <h1>Sign up</h1>
+        </div>
+
+        <form
+          className="loginSignupForm"
+          onSubmit={this.handleSubmit}
+          // name={name}
+        >
+          <div className="form-box-loginSignup">
+            <div className="contact-loginSignup">
+              <div className="column-loginSignup">
+                <input
+                  type="text"
+                  name="firstName"
+                  placeholder="First name"
+                  value={this.state.firstName}
+                  onChange={this.handleChange}
+                />
+                {errors.firstName.length > 0 && (
+                  <span className="error-txt">{errors.firstName}</span>
+                )}
+                <input
+                  type="text"
+                  name="lastName"
+                  placeholder="Last name"
+                  value={this.state.lastName}
+                  onChange={this.handleChange}
+                />
+                {errors.lastName.length > 0 && (
+                  <span className="error-txt">{errors.lastName}</span>
+                )}
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={this.state.email}
+                  onChange={this.handleChange}
+                />
+                {errors.email.length > 0 && (
+                  <span className="error-txt">{errors.email}</span>
+                )}
+
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                />
+                {errors.password.length > 0 && (
+                  <span className="error-txt">{errors.password}</span>
+                )}
+              </div>
+              <div className="error-txt-large">
+                {!this.props.error
+                  ? null
+                  : 'Unable to sign you up. Please double-check the information you entered to make sure it is correct.'}
+              </div>
+            </div>
+
+            <div className="loginSignup-btn-div">
+              <button type="submit">Register</button>
             </div>
           </div>
-          <div className="loginSignup-btn-div">
-            <button type="submit">Register</button>
-          </div>
-        </div>
-      </form>
-    </div>
-  );
-};
+        </form>
+      </div>
+    );
+  }
+}
+
+// const SignUpForm = props => {
+//   const { name, handleSubmit } = props;
+
+//   return (
+//     <div>
+//       <div className="loginSignupText">
+//         <h1>Sign up</h1>
+//       </div>
+
+//       <form className="loginSignupForm" onSubmit={handleSubmit} name={name}>
+//         <div className="form-box-loginSignup">
+//           <div className="contact-loginSignup">
+//             <div className="column-loginSignup">
+//               <input type="text" name="firstName" placeholder="First name" />
+//               <input type="text" name="lastName" placeholder="Last name" />
+//               <input type="email" name="email" placeholder="Email" />
+//               <input type="password" name="password" placeholder="Password" />
+//             </div>
+//           </div>
+//           <div className="loginSignup-btn-div">
+//             <button type="submit">Register</button>
+//           </div>
+//         </div>
+//       </form>
+//     </div>
+//   );
+// };
 
 const mapSignup = state => {
   return {
@@ -44,24 +184,18 @@ const mapSignup = state => {
 
 const mapDispatch = dispatch => {
   return {
-    handleSubmit(evt) {
-      evt.preventDefault();
-      const formName = evt.target.name;
-      const email = evt.target.email.value;
-      const password = evt.target.password.value;
-      const firstName = evt.target.firstName.value;
-      const lastName = evt.target.lastName.value;
-      dispatch(auth(email, password, formName, firstName, lastName));
-    }
+    authorize: (email, password, formName, firstName, lastName) =>
+      dispatch(auth(email, password, formName, firstName, lastName))
   };
 };
 
-export const Signup = connect(mapSignup, mapDispatch)(SignUpForm);
+const SignupForm = connect(mapSignup, mapDispatch)(disconnectedSignUpForm);
+
+export default SignupForm;
 
 //PROP TYPES
-SignUpForm.propTypes = {
-  name: PropTypes.string.isRequired,
-  displayName: PropTypes.string.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
+disconnectedSignUpForm.propTypes = {
+  // name: PropTypes.string.isRequired,
+  // displayName: PropTypes.string.isRequired,
   error: PropTypes.object
 };

@@ -82,7 +82,7 @@ class CheckoutForm extends React.Component {
               <h4>Contact information</h4>
               <div className="column">
                 <input
-                  type="text"
+                  type="email"
                   name="email"
                   value={this.state.email}
                   onChange={this.handleChange}

@@ -76,11 +76,15 @@ class ViewCart extends React.Component {
               <h3>There are no items in your cart!</h3>
             </div>
           )}
-          <Link to="/checkoutForm">
-            <button type="button" className="checkout-btn">
-              Checkout
-            </button>
-          </Link>
+          <div className="checkout-btn-wrapper">
+            <div className="checkout-btn-div">
+              <Link to="/checkoutForm">
+                <button type="button" className="checkout-btn">
+                  Checkout
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     );

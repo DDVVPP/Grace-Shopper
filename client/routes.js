@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Login } from './components/loginform';
-import { Signup } from './components/signupform';
+import SignUp from './components/signupform';
 import { me } from './store';
 import AllWigs from './components/all-wigs';
 import LongWigs from './components/longWigs';
@@ -23,14 +23,14 @@ class Routes extends Component {
   }
 
   render() {
-    const { isLoggedIn, wig } = this.props;
+    const { isLoggedIn } = this.props;
 
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
         <Route exact path="/" component={WigsHome} />
         <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
+        <Route path="/signup" component={SignUp} />
         <Route exact path="/wigs" component={AllWigs} />
 
         <Route exact path="/shortwigs" component={ShortWigs} />
@@ -43,12 +43,10 @@ class Routes extends Component {
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={WigsHome} />
-            {/* <Route exact path="/wigs" component={AllWigs} />
-            <Route path="/viewCart" component={ViewCart} /> */}
           </Switch>
         )}
-        {/* Displays our Login component as a fallback */}
-        <Route component={Login} />
+        {/* Displays our Home Page component as a fallback */}
+        <Route component={WigsHome} />
       </Switch>
     );
   }
