@@ -3,6 +3,7 @@ import user from './user';
 import wigs from './wigs';
 import cart from './cart';
 import total from './total';
+import neworder from './order';
 
 export const GET_USER = 'GET_USER';
 export const REMOVE_USER = 'REMOVE_USER';
@@ -28,7 +29,8 @@ const rootReducer = combineReducers({
   user,
   wigs,
   cart,
-  total
+  total,
+  neworder
 });
 
 export default rootReducer;

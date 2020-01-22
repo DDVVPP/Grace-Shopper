@@ -4,8 +4,8 @@ import {
   CART_ERROR,
   REMOVE_FROM_CART,
   REMOVE_FROM_CART_ERROR,
-  PLACE_NEW_ORDER,
-  PLACE_ORDER_ERROR,
+  // PLACE_NEW_ORDER,
+  // PLACE_ORDER_ERROR,
   UPDATE_WIGS_ERROR
 } from './index';
 
@@ -33,14 +33,14 @@ const cartErrorAction = error => ({
   error
 });
 
-export const placeNewOrder = () => ({
-  type: PLACE_NEW_ORDER
-});
+// export const placeNewOrder = () => ({
+//   type: PLACE_NEW_ORDER
+// });
 
-export const placeNewOrderError = error => ({
-  type: PLACE_ORDER_ERROR,
-  error
-});
+// export const placeNewOrderError = error => ({
+//   type: PLACE_ORDER_ERROR,
+//   error
+// });
 
 export const removeFromCartError = error => ({
   type: REMOVE_FROM_CART_ERROR,
@@ -87,24 +87,25 @@ export const updateWigsThunk = cart => {
   return async dispatch => {
     try {
       await Axios.put('/api/wigs/quantity', cart);
+      console.log('update wigs thunk');
     } catch (error) {
       dispatch(updateWigsError(error));
     }
   };
 };
 
-export const placeOrderThunk = order => {
-  return async dispatch => {
-    try {
-      const { data } = await Axios.post('/api/orders', order);
-      // for updating line item associations down the line
-      // if (!newCart) //add some error message if newCart doesn't exist
-      dispatch(placeNewOrder());
-    } catch (error) {
-      dispatch(placeNewOrderError(error));
-    }
-  };
-};
+// export const placeOrderThunk = order => {
+//   return async dispatch => {
+//     try {
+//       const { data } = await Axios.post('/api/orders', order);
+//       // for updating line item associations down the line
+//       // if (!newCart) //add some error message if newCart doesn't exist
+//       dispatch(placeNewOrder());
+//     } catch (error) {
+//       dispatch(placeNewOrderError(error));
+//     }
+//   };
+// };
 
 export default function cart(state = [], action) {
   switch (action.type) {
@@ -148,8 +149,8 @@ export default function cart(state = [], action) {
     case REMOVE_FROM_CART:
       let existingCart = [...state];
       return existingCart.filter(wig => action.wigId != wig.id);
-    case PLACE_NEW_ORDER:
-      return [];
+    // case PLACE_NEW_ORDER:
+    //   return [];
     default:
       return state;
   }

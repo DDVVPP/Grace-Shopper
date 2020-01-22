@@ -70,21 +70,19 @@ class ViewCart extends React.Component {
             <div className="contact">
               {items}
               <h2>Order Total: ${(this.props.total / 100).toFixed(2)}</h2>
+              <div className="checkout-btn-div">
+                <Link to="/checkoutForm">
+                  <button type="button" className="checkout-btn">
+                    Checkout
+                  </button>
+                </Link>
+              </div>
             </div>
           ) : (
             <div className="contact">
               <h3>There are no items in your cart!</h3>
             </div>
           )}
-          <div className="checkout-btn-wrapper">
-            <div className="checkout-btn-div">
-              <Link to="/checkoutForm">
-                <button type="button" className="checkout-btn">
-                  Checkout
-                </button>
-              </Link>
-            </div>
-          </div>
         </div>
       </div>
     );

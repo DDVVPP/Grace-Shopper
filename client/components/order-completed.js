@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { placeOrderThunk, updateWigsThunk } from '../store/reducers/cart';
 
 class OrderCompleted extends Component {
   constructor() {
@@ -19,15 +18,6 @@ class OrderCompleted extends Component {
 
               <p>${(order.price * order.cartQuantity / 100).toFixed(2)}</p>
               <p>{order.cartQuantity}</p>
-              <button
-                type="button"
-                value={order.id}
-                onClick={
-                  this.removeClickItem // value={item.price * item.cartQuantity}
-                }
-              >
-                X
-              </button>
             </div>
           );
         })
@@ -66,9 +56,4 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  placeOrderThunk: order => dispatch(placeOrderThunk(order)),
-  updateWigsThunk: cart => dispatch(updateWigsThunk(cart))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(OrderCompleted);
+export default connect(mapStateToProps)(OrderCompleted);

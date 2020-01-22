@@ -19,7 +19,7 @@ const LineItem = require('./lineItems');
 
 User.hasMany(Order);
 Order.belongsTo(User);
-Wig.hasMany(Order);
+// Wig.hasMany(Order);
 Order.hasMany(LineItem);
 Wig.hasMany(LineItem);
 

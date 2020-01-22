@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { placeOrderThunk, updateWigsThunk } from '../store/reducers/cart';
+import { updateWigsThunk } from '../store/reducers/cart';
+import { placeOrderThunk } from '../store/reducers/order';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import wigs from '../store/reducers/wigs';
 //need to import thunks to post an order
 
@@ -17,7 +19,6 @@ class CheckoutForm extends React.Component {
       shippingAddressCity: '',
       shippingAddressState: '',
       shippingAddressZipcode: '',
-
       billingAddressStreet: '',
       billingAddressLine2: '',
       billingAddressCity: '',
@@ -31,12 +32,13 @@ class CheckoutForm extends React.Component {
     this.setState({
       [event.target.name]: event.target.value
     });
+    console.log(event.target.value);
+    console.log(this.state);
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  handleSubmit(evt) {
+    evt.preventDefault();
     const order = {
-      total: this.props.total,
       email: this.state.email,
       firstName: this.state.firstName,
       lastName: this.state.lastName,
@@ -45,11 +47,22 @@ class CheckoutForm extends React.Component {
       city: this.state.shippingAddressCity,
       state: this.state.shippingAddressState,
       zip: this.state.shippingAddressZipcode,
-      user: this.props.user ? this.props.user.id : null
+      user: this.props.user ? this.props.user.id : null,
+      total: this.props.total
     };
-    this.props.updateWigsThunk(this.props.cart);
     this.props.placeOrderThunk(order);
-    // window.location.pathname = '/orderCompleted';
+
+    this.props.updateWigsThunk(this.props.cart);
+    this.setState({
+      email: '',
+      firstName: '',
+      lastName: '',
+      shippingAddressStreet: '',
+      shippingAddressLine2: '',
+      shippingAddressCity: '',
+      shippingAddressState: '',
+      shippingAddressZipcode: ''
+    });
   }
 
   render() {
@@ -101,6 +114,7 @@ class CheckoutForm extends React.Component {
                   onChange={this.handleChange}
                   placeholder="First name"
                 />
+
                 <input
                   type="text"
                   name="lastName"
@@ -127,6 +141,7 @@ class CheckoutForm extends React.Component {
                   onChange={this.handleChange}
                   placeholder="Address Line 2 (Optional)"
                 />
+
                 <input
                   type="text"
                   name="shippingAddressCity"
@@ -143,6 +158,7 @@ class CheckoutForm extends React.Component {
                   onChange={this.handleChange}
                   placeholder="State"
                 />
+
                 <input
                   type="text"
                   name="shippingAddressZipcode"
@@ -231,17 +247,18 @@ class CheckoutForm extends React.Component {
                   placeholder="Contact phone number"
                 />
               </div>
+              <div className="error-txt-large">
+                {!this.props.error
+                  ? null
+                  : 'Unable to sign you up. Please double-check the information you entered to make sure it is correct.'}
+              </div>
             </div>
 
             <div className="place-order-btn-div">
-              <Link to="/orderCompleted">
-                <button type="button">Place Order</button>
-              </Link>
-            </div>
-
-            {/* <div className="place-order-btn-div">
+              {/* <Link to="/orderCompleted"> */}
               <button type="submit">Place Order</button>
-            </div> */}
+              {/* </Link> */}
+            </div>
           </div>
 
           <div className="order-summary">
@@ -269,7 +286,9 @@ const mapStateToProps = state => {
   return {
     cart: state.cart,
     total: state.total,
-    user: state.user
+    user: state.user,
+    error: state.user.error,
+    neworder: state.neworder
   };
 };
 
@@ -279,3 +298,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CheckoutForm);
+
+//PROP TYPES
+CheckoutForm.propTypes = {
+  error: PropTypes.object
+};

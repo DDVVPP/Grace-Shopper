@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GOT_ALL_WIGS, GOT_SINGLE_WIG, PLACE_NEW_ORDER } from './index';
+import { GOT_ALL_WIGS, GOT_SINGLE_WIG } from './index';
 
 //ACTION CREATORS
 export const gotWigs = wigs => ({

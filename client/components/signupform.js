@@ -64,9 +64,9 @@ class disconnectedSignUpForm extends React.Component {
     this.props.authorize(
       this.state.email,
       this.state.password,
+      this.props.name,
       this.state.firstName,
-      this.state.lastName,
-      this.props.name
+      this.state.lastName
     );
   }
 
@@ -146,34 +146,6 @@ class disconnectedSignUpForm extends React.Component {
   }
 }
 
-// const SignUpForm = props => {
-//   const { name, handleSubmit } = props;
-
-//   return (
-//     <div>
-//       <div className="loginSignupText">
-//         <h1>Sign up</h1>
-//       </div>
-
-//       <form className="loginSignupForm" onSubmit={handleSubmit} name={name}>
-//         <div className="form-box-loginSignup">
-//           <div className="contact-loginSignup">
-//             <div className="column-loginSignup">
-//               <input type="text" name="firstName" placeholder="First name" />
-//               <input type="text" name="lastName" placeholder="Last name" />
-//               <input type="email" name="email" placeholder="Email" />
-//               <input type="password" name="password" placeholder="Password" />
-//             </div>
-//           </div>
-//           <div className="loginSignup-btn-div">
-//             <button type="submit">Register</button>
-//           </div>
-//         </div>
-//       </form>
-//     </div>
-//   );
-// };
-
 const mapSignup = state => {
   return {
     name: 'signup',
@@ -195,7 +167,5 @@ export default SignupForm;
 
 //PROP TYPES
 disconnectedSignUpForm.propTypes = {
-  // name: PropTypes.string.isRequired,
-  // displayName: PropTypes.string.isRequired,
   error: PropTypes.object
 };

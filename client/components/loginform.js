@@ -23,6 +23,9 @@ const LoginForm = props => {
               <input type="password" name="password" placeholder="Password" />
             </div>
           </div>
+          <div className="error-txt-large">
+            {!props.error ? null : 'Wrong username and/or password'}
+          </div>
           <div className="loginSignup-btn-div">
             <button type="submit">Login</button>
           </div>
@@ -57,7 +60,7 @@ export const Login = connect(mapLogin, mapDispatch)(LoginForm);
 //PROP TYPES
 LoginForm.propTypes = {
   name: PropTypes.string.isRequired,
-  displayName: PropTypes.string.isRequired,
+
   handleSubmit: PropTypes.func.isRequired,
   error: PropTypes.object
 };
