@@ -329,9 +329,16 @@ input {
   width: 46%;
 }
 
+.sideBySide span {
+  width: 47.5%;
+}
+
 @media (max-width: 1350px) {
   .sideBySide input {
     width: 44.5%;
+  }
+  .sideBySide span {
+    width: 46%;
   }
 }
 

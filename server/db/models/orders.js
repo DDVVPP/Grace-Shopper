@@ -4,34 +4,55 @@ const db = require('../db');
 const Order = db.define('order', {
   email: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
   firstName: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
   lastName: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
   street: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
   addressLine2: {
     type: Sequelize.STRING
   },
   city: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
   state: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
   zip: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
 
   total: {

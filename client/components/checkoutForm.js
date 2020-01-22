@@ -1,11 +1,9 @@
+/* eslint-disable complexity */
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateWigsThunk } from '../store/reducers/cart';
 import { placeOrderThunk } from '../store/reducers/order';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import wigs from '../store/reducers/wigs';
-//need to import thunks to post an order
 
 class CheckoutForm extends React.Component {
   constructor() {
@@ -23,20 +21,67 @@ class CheckoutForm extends React.Component {
       billingAddressLine2: '',
       billingAddressCity: '',
       billingAddressState: '',
-      billingAddressZipcode: ''
+      billingAddressZipcode: '',
+      errors: {
+        email: 'Required',
+        firstName: 'Required',
+        lastName: 'Required',
+        shippingAddressStreet: 'Required',
+        shippingAddressCity: 'Required',
+        shippingAddressState: 'Required',
+        shippingAddressZipcode: 'Required'
+      }
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(event) {
+    let errors = this.state.errors;
+    const validEmailRegex = RegExp(
+      /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+    );
+
+    switch (event.target.name) {
+      case 'email':
+        errors.email = validEmailRegex.test(event.target.value)
+          ? ''
+          : 'Email is not valid';
+        break;
+      case 'firstName':
+        errors.firstName =
+          event.target.value.length < 1 ? 'Your first name is required' : '';
+        break;
+      case 'lastName':
+        errors.lastName =
+          event.target.value.length < 1 ? 'Your last name is required' : '';
+        break;
+      case 'shippingAddressStreet':
+        errors.shippingAddressStreet =
+          event.target.value.length < 1 ? 'Street is required' : '';
+        break;
+      case 'shippingAddressCity':
+        errors.shippingAddressCity =
+          event.target.value.length < 1 ? 'City is required' : '';
+        break;
+      case 'shippingAddressState':
+        errors.shippingAddressState =
+          event.target.value.length < 1 ? 'State is required' : '';
+        break;
+      case 'shippingAddressZipcode':
+        errors.shippingAddressZipcode =
+          event.target.value.length < 1 ? 'Zipcode is required' : '';
+        break;
+      default:
+        break;
+    }
     this.setState({
+      errors,
       [event.target.name]: event.target.value
     });
-    console.log(event.target.value);
-    console.log(this.state);
   }
 
   handleSubmit(evt) {
+    console.log('ERROR', this.props.neworder.error);
     evt.preventDefault();
     const order = {
       email: this.state.email,
@@ -53,20 +98,12 @@ class CheckoutForm extends React.Component {
     this.props.placeOrderThunk(order);
 
     this.props.updateWigsThunk(this.props.cart);
-    this.setState({
-      email: '',
-      firstName: '',
-      lastName: '',
-      shippingAddressStreet: '',
-      shippingAddressLine2: '',
-      shippingAddressCity: '',
-      shippingAddressState: '',
-      shippingAddressZipcode: ''
-    });
   }
 
   render() {
     const { cart } = this.props;
+    const { errors } = this.state;
+    console.log('ERROR', this.props.neworder.error);
 
     const orderSummary = cart ? (
       cart.map(order => {
@@ -101,6 +138,9 @@ class CheckoutForm extends React.Component {
                   onChange={this.handleChange}
                   placeholder="Email"
                 />
+                {errors.email.length > 0 && (
+                  <span className="error-txt">{errors.email}</span>
+                )}
               </div>
             </div>
 
@@ -114,7 +154,6 @@ class CheckoutForm extends React.Component {
                   onChange={this.handleChange}
                   placeholder="First name"
                 />
-
                 <input
                   type="text"
                   name="lastName"
@@ -123,7 +162,14 @@ class CheckoutForm extends React.Component {
                   placeholder="Last name"
                 />
               </div>
-
+              <div className="sideBySide">
+                {errors.firstName.length > 0 && (
+                  <span className="error-txt">{errors.firstName}</span>
+                )}
+                {errors.lastName.length > 0 && (
+                  <span className="error-txt">{errors.lastName}</span>
+                )}
+              </div>
               <div className="column">
                 <input
                   type="text"
@@ -132,6 +178,11 @@ class CheckoutForm extends React.Component {
                   onChange={this.handleChange}
                   placeholder="Address"
                 />
+                {errors.shippingAddressStreet.length > 0 && (
+                  <span className="error-txt">
+                    {errors.shippingAddressStreet}
+                  </span>
+                )}
               </div>
               <div className="sideBySide">
                 <input
@@ -151,6 +202,16 @@ class CheckoutForm extends React.Component {
                 />
               </div>
               <div className="sideBySide">
+                {errors.shippingAddressState.length > 0 && (
+                  <span className="error-txt" />
+                )}
+                {errors.shippingAddressCity.length > 0 && (
+                  <span className="error-txt">
+                    {errors.shippingAddressCity}
+                  </span>
+                )}
+              </div>
+              <div className="sideBySide">
                 <input
                   type="text"
                   name="shippingAddressState"
@@ -166,6 +227,18 @@ class CheckoutForm extends React.Component {
                   onChange={this.handleChange}
                   placeholder="ZIP code"
                 />
+              </div>
+              <div className="sideBySide">
+                {errors.shippingAddressState.length > 0 && (
+                  <span className="error-txt">
+                    {errors.shippingAddressState}
+                  </span>
+                )}
+                {errors.shippingAddressZipcode.length > 0 && (
+                  <span className="error-txt">
+                    {errors.shippingAddressZipcode}
+                  </span>
+                )}
               </div>
               <div className="column">
                 <input
@@ -247,17 +320,15 @@ class CheckoutForm extends React.Component {
                   placeholder="Contact phone number"
                 />
               </div>
-              <div className="error-txt-large">
-                {!this.props.error
-                  ? null
-                  : 'Unable to sign you up. Please double-check the information you entered to make sure it is correct.'}
-              </div>
             </div>
-
+            <div className="error-txt-large">
+              {this.props.neworder.message ===
+              'Request failed with status code 500'
+                ? 'Unable to sign you up. Please double-check the information you entered to make sure it is correct.'
+                : null}
+            </div>
             <div className="place-order-btn-div">
-              {/* <Link to="/orderCompleted"> */}
               <button type="submit">Place Order</button>
-              {/* </Link> */}
             </div>
           </div>
 
@@ -287,7 +358,6 @@ const mapStateToProps = state => {
     cart: state.cart,
     total: state.total,
     user: state.user,
-    error: state.user.error,
     neworder: state.neworder
   };
 };

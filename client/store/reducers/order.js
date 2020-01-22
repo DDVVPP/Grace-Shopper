@@ -36,18 +36,10 @@ export const placeOrderThunk = orderedItems => {
 export default function neworder(state = [], action) {
   switch (action.type) {
     case PLACE_NEW_ORDER:
-      const newOrder = {
-        email: action.email,
-        firstName: action.firstName,
-        lastName: action.lastName,
-        street: action.street,
-        street2: action.street2,
-        city: action.city,
-        state: action.state,
-        zip: action.zip,
-        total: action.total
-      };
-      return { ...state, newOrder };
+      return [];
+    case PLACE_ORDER_ERROR:
+      return action.error;
+
     default:
       return state;
   }
