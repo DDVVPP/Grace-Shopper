@@ -301,20 +301,21 @@ form {
 
 .summary-div {
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 }
 
 .summary-div img {
   max-width: 100px;
   text-align: left;
-  margin-right: 2rem;
+  margin-right: 1rem;
 }
 
 .summary-div p {
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
   font-size: small;
-  text-align: left;
+  text-align: center;
+  margin-right: 3rem;
 }
 
 input {
@@ -467,20 +468,20 @@ form h2 {
 
 .order-summary-centered .summary-div {
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: space-between;
+  /* align-items: center; */
 }
 
 .order-summary-centered .summary-div img {
   max-width: 100px;
   text-align: left;
-  margin-right: 2rem;
+  margin-right: 1rem;
 }
 
 .order-summary-centered .summary-div p {
-  padding: 1.5rem;
+  /* padding: 1.5rem; */
   font-size: small;
-  text-align: left;
+  text-align: center;
 }
 
 .order-summary-centered .contact {
@@ -533,7 +534,8 @@ form h2 {
   padding: 0.25rem;
   border: 1px solid #257885bd;
   border-radius: 2px;
-  margin-left: 1.5rem;
+  /* margin-left: 1.5rem; */
+  margin-right: 2rem;
 }
 
 .order-summary-centered .contact .summary-div button:hover {
