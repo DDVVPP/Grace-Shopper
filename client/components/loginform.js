@@ -7,8 +7,7 @@ import { auth } from '../store';
  * COMPONENT
  */
 const LoginForm = props => {
-  const { name, handleSubmit } = props;
-
+  const { name, handleSubmit, error } = props;
   return (
     <div>
       <div className="loginSignupText">
@@ -24,7 +23,11 @@ const LoginForm = props => {
             </div>
           </div>
           <div className="error-txt-large">
-            {!props.error ? null : 'Wrong username and/or password'}
+            {!error
+              ? null
+              : error.message === 'Wrong username and/or password'
+                ? 'Wrong or missing username and/or password'
+                : 'Wrong or missing username and/or password'}
           </div>
           <div className="loginSignup-btn-div">
             <button type="submit">Login</button>
