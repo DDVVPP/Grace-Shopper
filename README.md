@@ -13,13 +13,13 @@ An e-commerce site where users can view and buy wigs.
 <a href="https://grace-shopper-v2.herokuapp.com/"
 title="herokuapp"
 target="_blank"
-rel="noopener noreferrer">Grace Shopper on Heroku</a>
+rel="noopener noreferrer">Bart's Wigs on Heroku</a>
 
-### Link to Grace-Shopper v.1
+### Link to Bart's Wigs v.1
 
 <a href="https://github.com/thats-so-ravenclaw/grace-shopper/">Grace Shopper v.1 GitHub</a>
 
-#### Team of Grace-Shopper v.1
+#### Team of Bart's Wigs / Grace-Shopper v.1
 
 * Nevette Bailey
 
