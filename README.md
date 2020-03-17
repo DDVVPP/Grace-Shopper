@@ -1,4 +1,4 @@
-# Grace-Shopper v.2
+# Bart's Wigs v.2
 
 An e-commerce site where users can view and buy wigs.
 
