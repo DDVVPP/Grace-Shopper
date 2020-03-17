@@ -6,6 +6,7 @@ import { Login } from './components/loginform';
 import SignUp from './components/signupform';
 import { me } from './store';
 import AllWigs from './components/all-wigs';
+import SingleWig from './components/single-wig';
 import LongWigs from './components/longWigs';
 import MediumWigs from './components/mediumWigs';
 import ShortWigs from './components/shortWigs';
@@ -32,7 +33,7 @@ class Routes extends Component {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
         <Route exact path="/wigs" component={AllWigs} />
-
+        <Route path="/wigs/:wigId" component={SingleWig} />
         <Route exact path="/shortwigs" component={ShortWigs} />
         <Route exact path="/mediumwigs" component={MediumWigs} />
         <Route exact path="/longwigs" component={LongWigs} />
