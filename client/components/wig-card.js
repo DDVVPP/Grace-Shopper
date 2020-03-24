@@ -30,7 +30,7 @@ class WigCard extends React.Component {
         </div>
         {wig.quantity === 0 ? <p>This item is sold out.</p> : ''}
         <div className="wig-btn-div">
-          <Link to={`/wigs/${wig.id}`}>
+          <Link to={{ pathname: `/wigs/${wig.id}`, wigId: wig.id }}>
             <button type="button">View</button>
           </Link>
           <button

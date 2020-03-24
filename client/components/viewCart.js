@@ -11,7 +11,6 @@ import { updateTotalThunk, addTotalThunk } from '../store/reducers/total';
 class ViewCart extends React.Component {
   constructor() {
     super();
-    // this.removeClickItem = this.removeClickItem.bind(this);
     this.reduceItemByOne = this.reduceItemByOne.bind(this);
     this.increaseItemByOne = this.increaseItemByOne.bind(this);
   }
@@ -41,9 +40,6 @@ class ViewCart extends React.Component {
 
     let filteredCart = this.props.cart.filter(wig => wigId === wig.id);
     this.props.increaseCartQuant(filteredCart[0]);
-
-    let cartQuant = filteredCart[0].cartQuantity;
-    let dbQuant = filteredCart[0].quantity;
     let priceOfWig = filteredCart[0].price;
 
     //increase price of 1 wig from total & remove item from cart if 0 quantity

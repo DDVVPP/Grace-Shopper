@@ -9,7 +9,7 @@ class LongWigs extends React.Component {
   }
 
   render() {
-    const wigs = this.props.wigs;
+    const { wigs } = this.props;
 
     return (
       <div className="allwigs-content">

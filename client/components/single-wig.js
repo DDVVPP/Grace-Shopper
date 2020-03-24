@@ -3,42 +3,40 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addToCartThunk } from '../store/reducers/cart';
 import { addTotalThunk } from '../store/reducers/total';
+import { getSingleWig } from '../store/reducers/wigs';
 
-class WigCard extends React.Component {
+class SingleWig extends React.Component {
   constructor() {
     super();
     this.addClick = this.addClick.bind(this);
   }
-
+  componentDidMount() {
+    this.props.getWig(this.props.location.wigId);
+  }
   addClick() {
-    this.props.addItem(this.props.wig);
-    // this.props.addPrice(this.props.wig.id);
-    this.props.addPrice(this.props.wig.price);
+    this.props.addItem(this.props.wigs[0]);
+    this.props.addPrice(this.props.wigs[0].price);
   }
 
   render() {
-    const { wig } = this.props;
-
+    const { wigId } = this.props.location;
+    const { wigs } = this.props;
+    console.log('wig', typeof wigId);
+    console.log('wigs', wigs);
+    const singleWig = wigs[0];
     return (
-      <div className="wig-card" key={wig.id}>
+      <div className="wig-card">
+        <h2>Placeholder for wig.id {wigId}</h2>
         <div className="wig-img-div">
-          <img src={wig.image} />
+          <img src={singleWig.image} />
         </div>
         <div className="wig-text-div">
-          <p>{wig.name}</p>
-          <p>Price: ${wig.price / 100}</p>
+          <p>{singleWig.name}</p>
+          <p>Price: ${singleWig.price / 100}</p>
         </div>
-        {wig.quantity === 0 ? <p>This item is sold out.</p> : ''}
+        {singleWig.quantity === 0 ? <p>This item is sold out.</p> : ''}
         <div className="wig-btn-div">
-          <Link to={`/wigs/${wig.id}`}>
-            <button type="button">View</button>
-          </Link>
-          <button
-            type="button"
-            value={wig}
-            onClick={this.addClick}
-            disabled={wig.quantity === 0}
-          >
+          <button type="button" onClick={this.addClick}>
             Add to Cart
           </button>
         </div>
@@ -47,11 +45,16 @@ class WigCard extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  wigs: state.wigs
+});
+
 const mapDispatchToProps = dispatch => {
   return {
     addItem: item => dispatch(addToCartThunk(item)),
-    addPrice: wigPrice => dispatch(addTotalThunk(wigPrice))
+    addPrice: wigPrice => dispatch(addTotalThunk(wigPrice)),
+    getWig: wigId => dispatch(getSingleWig(wigId))
   };
 };
 
-export default connect(null, mapDispatchToProps)(WigCard);
+export default connect(mapStateToProps, mapDispatchToProps)(SingleWig);

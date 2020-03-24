@@ -9,8 +9,7 @@ class ShortWigs extends React.Component {
   }
 
   render() {
-    const wigs = this.props.wigs;
-
+    const { wigs } = this.props;
     return (
       <div className="allwigs-content">
         <h1>short length wigs</h1>
