@@ -3,15 +3,17 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
   removeFromCartThunk,
-  updateCartQuantThunk
+  updateCartQuantThunk,
+  addToCartThunk
 } from '../store/reducers/cart';
-import { updateTotalThunk } from '../store/reducers/total';
+import { updateTotalThunk, addTotalThunk } from '../store/reducers/total';
 
 class ViewCart extends React.Component {
   constructor() {
     super();
-    this.removeClickItem = this.removeClickItem.bind(this);
+    // this.removeClickItem = this.removeClickItem.bind(this);
     this.reduceItemByOne = this.reduceItemByOne.bind(this);
+    this.increaseItemByOne = this.increaseItemByOne.bind(this);
   }
 
   reduceItemByOne(event) {
@@ -33,6 +35,22 @@ class ViewCart extends React.Component {
     }
   }
 
+  increaseItemByOne(event) {
+    let wigIdString = event.target.value;
+    let wigId = Number(wigIdString);
+
+    let filteredCart = this.props.cart.filter(wig => wigId === wig.id);
+    this.props.increaseCartQuant(filteredCart[0]);
+
+    let cartQuant = filteredCart[0].cartQuantity;
+    let dbQuant = filteredCart[0].quantity;
+    let priceOfWig = filteredCart[0].price;
+
+    //increase price of 1 wig from total & remove item from cart if 0 quantity
+
+    this.props.increaseTotal(priceOfWig);
+  }
+
   render() {
     console.log('props', this.props.cart);
     const items = this.props.cart
@@ -51,12 +69,21 @@ class ViewCart extends React.Component {
                 -
               </button>
               <p>{item.cartQuantity}</p>
+              {item.cartQuantity < item.quantity ? (
+                <button
+                  type="button"
+                  value={item.id}
+                  onClick={this.increaseItemByOne}
+                >
+                  +
+                </button>
+              ) : (
+                <h2>'No more available wigs!'</h2>
+              )}
             </div>
           );
         })
       : '';
-
-    const itemSum = this.props.cart ? this.props.total : '';
 
     return (
       <div>
@@ -96,7 +123,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   removeItem: wigId => dispatch(removeFromCartThunk(wigId)),
   updateCartQuant: filteredCart => dispatch(updateCartQuantThunk(filteredCart)),
-  decreaseTotal: priceOfWig => dispatch(updateTotalThunk(priceOfWig))
+  decreaseTotal: priceOfWig => dispatch(updateTotalThunk(priceOfWig)),
+  increaseTotal: priceOfWig => dispatch(addTotalThunk(priceOfWig)),
+  increaseCartQuant: filteredCart => dispatch(addToCartThunk(filteredCart))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ViewCart);
