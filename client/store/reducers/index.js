@@ -16,6 +16,7 @@ export const GET_CART = 'GET_CART';
 export const CART_ERROR = 'GET_CART_ERROR';
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 export const REMOVE_FROM_CART_ERROR = 'REMOVE_FROM_CART_ERROR';
+export const UPDATE_CART_QUANTITY = 'UPDATE_CART_QUANTITY';
 
 export const GET_TOTAL = 'GET_TOTAL';
 export const TOTAL_ERROR = 'TOTAL_ERROR';

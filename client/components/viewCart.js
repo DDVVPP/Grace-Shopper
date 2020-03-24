@@ -1,38 +1,40 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { removeFromCartThunk } from '../store/reducers/cart';
+import {
+  removeFromCartThunk,
+  updateCartQuantThunk
+} from '../store/reducers/cart';
 import { updateTotalThunk } from '../store/reducers/total';
 
 class ViewCart extends React.Component {
   constructor() {
     super();
     this.removeClickItem = this.removeClickItem.bind(this);
+    this.reduceItemByOne = this.reduceItemByOne.bind(this);
   }
 
-  removeClickItem(event) {
-    //item.id is passed in as a string
+  reduceItemByOne(event) {
     let wigIdString = event.target.value;
-
-    //converted item.id from string to number
     let wigId = Number(wigIdString);
 
-    //filtering through cart on state to return wig that was clicked
     let filteredCart = this.props.cart.filter(wig => wigId === wig.id);
-    console.log('FILTERED ', filteredCart);
+    this.props.updateCartQuant(filteredCart[0]);
 
-    //filtered cart will always only have one wig in it's array
     let cartQuant = filteredCart[0].cartQuantity;
-    let eachWigPrice = filteredCart[0].price;
+    let priceOfWig = filteredCart[0].price;
 
-    //multiply cart quanity with price of wig to send to thunk creator
-    let subtotalWigPrice = eachWigPrice * cartQuant;
-
-    this.props.decreaseTotal(subtotalWigPrice);
-    this.props.removeItem(wigId);
+    //decrease price of 1 wig from total & remove item from cart if 0 quantity
+    if (cartQuant === 0) {
+      this.props.removeItem(wigId);
+      this.props.decreaseTotal(priceOfWig);
+    } else {
+      this.props.decreaseTotal(priceOfWig);
+    }
   }
 
   render() {
+    console.log('props', this.props.cart);
     const items = this.props.cart
       ? this.props.cart.map(item => {
           // eslint-disable-next-line no-return-assign
@@ -40,18 +42,15 @@ class ViewCart extends React.Component {
             <div className="summary-div" key={item.id}>
               <img src={item.image} />
               <p>{item.name}</p>
-
               <p>${(item.price * item.cartQuantity / 100).toFixed(2)}</p>
-              <p>{item.cartQuantity}</p>
               <button
                 type="button"
                 value={item.id}
-                onClick={
-                  this.removeClickItem // value={item.price * item.cartQuantity}
-                }
+                onClick={this.reduceItemByOne}
               >
-                X
+                -
               </button>
+              <p>{item.cartQuantity}</p>
             </div>
           );
         })
@@ -96,8 +95,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   removeItem: wigId => dispatch(removeFromCartThunk(wigId)),
-  decreaseTotal: subtotalWigPrice =>
-    dispatch(updateTotalThunk(subtotalWigPrice))
+  updateCartQuant: filteredCart => dispatch(updateCartQuantThunk(filteredCart)),
+  decreaseTotal: priceOfWig => dispatch(updateTotalThunk(priceOfWig))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ViewCart);

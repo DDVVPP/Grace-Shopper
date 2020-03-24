@@ -4,6 +4,7 @@ import {
   CART_ERROR,
   REMOVE_FROM_CART,
   REMOVE_FROM_CART_ERROR,
+  UPDATE_CART_QUANTITY,
   // PLACE_NEW_ORDER,
   // PLACE_ORDER_ERROR,
   UPDATE_WIGS_ERROR
@@ -26,6 +27,11 @@ export const getCart = () => ({
 export const removeFromCart = wigId => ({
   type: REMOVE_FROM_CART,
   wigId
+});
+
+export const updateCart = filteredWig => ({
+  type: UPDATE_CART_QUANTITY,
+  filteredWig
 });
 
 const cartErrorAction = error => ({
@@ -77,6 +83,16 @@ export const removeFromCartThunk = wigId => {
   return dispatch => {
     try {
       dispatch(removeFromCart(wigId));
+    } catch (error) {
+      dispatch(removeFromCartError(error));
+    }
+  };
+};
+
+export const updateCartQuantThunk = filteredWig => {
+  return dispatch => {
+    try {
+      dispatch(updateCart(filteredWig));
     } catch (error) {
       dispatch(removeFromCartError(error));
     }
@@ -149,6 +165,18 @@ export default function cart(state = [], action) {
     case REMOVE_FROM_CART:
       let existingCart = [...state];
       return existingCart.filter(wig => action.wigId != wig.id);
+    case UPDATE_CART_QUANTITY: {
+      let existingCart = [...state];
+      return existingCart.map(wig => {
+        if (action.filteredWig.id === wig.id) {
+          wig.cartQuantity -= 1;
+        }
+        return wig;
+      });
+
+      // console.log('reducer', existingCart)
+      // return existingCart
+    }
     // case PLACE_NEW_ORDER:
     //   return [];
     default:
